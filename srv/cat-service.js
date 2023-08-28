@@ -3,6 +3,11 @@ const cds = require('@sap/cds')
 class CatalogService extends cds.ApplicationService {
     async init() {
         const { Books } = this.entities
+        const { API_BP } = this.entities
+        const headers = {
+            'apikey': '00ckaNhCGdIVLbT8orAAxzxxMvHttANA'
+        }
+        const bupaSrvAPI = await cds.connect.to('API_BUSINESS_PARTNER')
 
         this.after('READ', Books, each => {
             if (each.stock < 20) each.title += ' (only a few left!)'
@@ -31,6 +36,12 @@ class CatalogService extends cds.ApplicationService {
             stock -= quantity
 
             return { stock }
+        })
+
+        this.on('READ', API_BP, async (req) => {
+            console.log('getting data from API Hub S/4HANA Sandbox System ')
+            const query = req.query
+            return bupaSrvAPI.send({ query, headers })
         })
 
         await super.init()
