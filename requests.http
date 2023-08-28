@@ -15,3 +15,13 @@ Content-Type: application/json
   "name": "William Shakespeare",
   "dateOfBirth": "1564-04-26"
 }
+
+### Get total stock
+GET {{server}}/odata/v4/catalog/totalStock()
+
+
+### Submit an order
+POST {{server}}/odata/v4/catalog/submitOrder
+Content-Type: application/json
+
+{ "book":207, "quantity":8 }
