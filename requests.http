@@ -1,0 +1,17 @@
+@server = http://localhost:4004
+ 
+### Get all books
+GET {{server}}/odata/v4/catalog/Books
+ 
+### Get all authors
+GET {{server}}/odata/v4/catalog/Authors
+ 
+### Create new author
+POST {{server}}/odata/v4/catalog/Authors
+Content-Type: application/json
+ 
+{
+  "ID": 200,
+  "name": "William Shakespeare",
+  "dateOfBirth": "1564-04-26"
+}
