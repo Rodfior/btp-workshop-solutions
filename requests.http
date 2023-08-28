@@ -2,6 +2,7 @@
  
 ### Get all books
 GET {{server}}/odata/v4/catalog/Books
+Authorization: Basic user1@example.com:initial
  
 ### Get all authors
 GET {{server}}/odata/v4/catalog/Authors
@@ -24,4 +25,17 @@ GET {{server}}/odata/v4/catalog/totalStock()
 POST {{server}}/odata/v4/catalog/submitOrder
 Content-Type: application/json
 
-{ "book":207, "quantity":8 }
+{ "book":207, "quantity":1 }
+
+### Create new book
+POST {{server}}/odata/v4/catalog/Books
+Content-Type: application/json
+Authorization: Basic user1@example.com:initial
+
+{
+  "ID": 299,
+  "title": "The Fall of the House of Ushe",
+  "author_ID": 150,
+  "stock":67,
+  "price": 19.19
+}

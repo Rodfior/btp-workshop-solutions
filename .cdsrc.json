@@ -1,1 +1,25 @@
-{}
+{
+    "[development]": {
+        "auth": {
+            "passport": {
+                "strategy": "mock",
+                "users": {
+                    "user1@example.com": {
+                        "password": "initial",
+                        "ID": "user1@example.com",
+                        "roles": [
+                            "AppAdmin"
+                        ]
+                    },
+                    "user2@example.com": {
+                        "password": "initial",
+                        "ID": "user2@example.com",
+                        "roles": [
+                            "authenticated-user"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

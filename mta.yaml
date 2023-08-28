@@ -125,6 +125,9 @@ resources:
       service: xsuaa
       service-name: mybookshop-xsuaa-service
       service-plan: application
+      config:
+        xsappname: mybookshop-${org}-${space}
+        tenant-mode: dedicated
 parameters:
   deploy_mode: html5-repo
   enable-parallel-deployments: true
