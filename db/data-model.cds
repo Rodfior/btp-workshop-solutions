@@ -1,19 +1,24 @@
-using {managed} from '@sap/cds/common';
+namespace my.bookshop2;
 
-namespace my.bookshop;
+using {cuid, managed} from '@sap/cds/common';
 
-entity Books : managed {
-    key ID     : Integer;
-        title  : String;
-        stock  : Integer;
-        price  : Decimal;
-        author : Association to Authors;
+
+entity Books: cuid, managed {
+  title  : String;
+  stock  : Integer;
+  price: Decimal;
+  author: Association to Authors;
 }
 
-entity Authors : managed {
-    key ID          : Integer;
-        name        : String @mandatory;
-        dateOfBirth : Date;
-        books       : Association to many Books
-                          on books.author = $self;
+entity Authors{
+  key ID: Integer;
+  name: String;
+  dateOfBirth: Date;
+  books: Association to many Books
+          on books.author = $self;
+}
+@cds.persistence.exists
+entity Authors2 {
+    key ID: Integer;
+    name: String;
 }

@@ -1,4 +1,4 @@
-using my.bookshop as my from '../db/data-model';
+using my.bookshop2 as my from '../db/data-model';
 
 service CatalogService {
 
@@ -8,5 +8,5 @@ service CatalogService {
         *,
         author.name as author_name
     };
-
+    entity Authors2 as projection on my.Authors2;
 }
